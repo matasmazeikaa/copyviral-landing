@@ -487,7 +487,7 @@ const features = [
     icon: Zap,
     title: "In-Browser Rendering",
     description:
-      "Export high-quality videos up to 1080p directly in your browser. No downloads required.",
+      "Export high-quality videos up to 1080p directly in your browser.",
     gradient: "from-amber-500 to-orange-500",
   },
   {
@@ -704,7 +704,6 @@ const plans = [
       "Advanced editing tools",
       "Priority support",
       "No watermark",
-      "Custom fonts",
     ],
     cta: "Upgrade to Pro",
     popular: true,
