@@ -18,6 +18,7 @@ import {
   ExternalLink,
   ChevronDown,
 } from "lucide-react";
+import Logo from "@/components/Logo";
 
 // Neural Network Animation Component
 function NeuralNetwork() {
@@ -253,11 +254,8 @@ function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:shadow-purple-500/40 transition-shadow">
-            <Sparkles className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-bold text-white">CopyViral</span>
+        <a href="#" className="flex items-center group">
+          <Logo className="text-white" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -302,10 +300,8 @@ function HeroSection() {
     if (!videoUrl) return;
     setIsAnalyzing(true);
 
-    // Simulate analysis then redirect to app
-    setTimeout(() => {
-      window.location.href = `https://app.copyviral.com?ref=${encodeURIComponent(videoUrl)}`;
-    }, 1500);
+    // Redirect to app immediately to start creating a project with the Instagram link
+    window.location.href = `https://app.copyviral.com/create?url=${encodeURIComponent(videoUrl)}`;
   };
 
   return (
@@ -377,7 +373,7 @@ function HeroSection() {
                 type="url"
                 value={videoUrl}
                 onChange={(e) => setVideoUrl(e.target.value)}
-                placeholder="Paste a TikTok, Instagram, or YouTube link..."
+                placeholder="Paste an Instagram link..."
                 className="flex-1 bg-transparent px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none text-lg"
                 onKeyDown={(e) => e.key === "Enter" && handleAnalyze()}
               />
@@ -404,11 +400,11 @@ function HeroSection() {
           {/* Quick examples */}
           <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
             <span className="text-sm text-slate-500">Try:</span>
-            {["TikTok", "Instagram Reel", "YouTube Short"].map((platform) => (
+            {["Instagram"].map((platform) => (
               <button
                 key={platform}
                 onClick={() =>
-                  setVideoUrl(`https://example.com/${platform.toLowerCase()}`)
+                  setVideoUrl(`https://instagram.com/${platform.toLowerCase().replace(" ", "-")}`)
                 }
                 className="px-3 py-1.5 rounded-lg text-sm text-slate-400 hover:text-white glass glass-hover transition-all"
               >
@@ -418,33 +414,12 @@ function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
-        >
-          {[
-            { value: "10K+", label: "Videos Analyzed" },
-            { value: "50K+", label: "Edits Created" },
-            { value: "4.9", label: "User Rating" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-slate-500">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-[-100px] left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -580,7 +555,7 @@ const steps = [
     step: "01",
     title: "Paste a Link",
     description:
-      "Drop any viral video link from TikTok, Instagram, YouTube, or other platforms.",
+      "Drop any viral video link from Instagram Reels or Posts.",
     icon: Copy,
   },
   {
@@ -853,11 +828,8 @@ function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/25">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">CopyViral</span>
+            <a href="#" className="flex items-center mb-4">
+              <Logo className="text-white" />
             </a>
             <p className="text-slate-400 max-w-sm">
               AI-powered video editor that helps you copy viral video styles and
