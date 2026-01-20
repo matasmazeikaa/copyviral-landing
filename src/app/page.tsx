@@ -758,15 +758,16 @@ function PricingSection() {
                   ))}
                 </ul>
 
-                <button
-                  className={`w-full py-3 rounded-xl font-semibold transition-all ${
+                <a
+                  href={plan.popular ? "https://app.copyviral.com/subscribe" : "https://app.copyviral.com"}
+                  className={`block w-full py-3 rounded-xl font-semibold transition-all text-center ${
                     plan.popular
                       ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-400 hover:to-pink-400 shadow-lg shadow-purple-500/25 btn-shine"
                       : "glass glass-hover text-white"
                   }`}
                 >
                   {plan.cta}
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -874,10 +875,10 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://app.copyviral.com/subscribe"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  FAQ
+                  Subscribe
                 </a>
               </li>
             </ul>
