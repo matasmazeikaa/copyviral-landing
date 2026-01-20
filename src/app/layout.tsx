@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -40,6 +41,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3FVMQNNGJQ"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3FVMQNNGJQ');
+          `}
+        </Script>
+      </head>
       <body
         className={`${outfit.variable} ${dmMono.variable} font-sans antialiased`}
         style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif" }}
